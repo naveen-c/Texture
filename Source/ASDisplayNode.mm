@@ -605,6 +605,9 @@ static ASDisplayNodeMethodOverrides GetASDisplayNodeMethodOverrides(Class c)
     _view = [self _locked_viewToLoad];
     _view.asyncdisplaykit_node = self;
     _layer = _view.layer;
+    if (_layer.delegate == _view) {
+      [_layer setDelegate:_view];
+    }
   }
   _layer.asyncdisplaykit_node = self;
   
